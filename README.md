@@ -69,7 +69,7 @@ Com o projeto rodando no endereço indicado acima você pode perceber que irá a
 
 Na tela List você encontrará uma lista com vários filmes, possuindo um filtro onde você poderá pesquisar por ano e também filtrar por Vencedores e Não vencedores.
 
-  # Sobre Testes Unitários E2E
+  # Testes Unitários E2E
   Para realizar os testes unitários você precisa já ter o **ambiente instalado e configurado**, após isso você irá rodar o projeto em um **Terminal Linux** ou **Prompt de Comando** com o comando `npm start`
   Feito isso você irá abrir outro  **Terminal Linux** ou **Prompt de Comando** e acessar a pasta do projeto, agora dentro da pasta do projeto você irá digitar o comando `npm run cypress` o Teste Unitário irá rodar automaticamente.
   Obs.: Testes Unitários não são meu ponto forte, mas estou sempre disposto a aprender.
