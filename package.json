@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "go": "npm i && ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -13,6 +14,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^15.1.0",
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",
     "@angular/forms": "^15.0.0",
@@ -27,6 +29,7 @@
     "@ionic/angular": "^6.1.9",
     "ionicons": "^6.0.3",
     "rxjs": "~7.5.0",
+    "rxjs-compat": "^6.6.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

@@ -24,3 +24,17 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-grid {
+    border: solid 1px var(--ion-color-medium);
+    border-radius: 4px;
+}
+.gray-color {
+    background: var(--ion-color-light);
+}
+.custom-padding {
+    padding: 8px 16px;
+}
+.value_lines {
+    border-top: solid 1px;
+}

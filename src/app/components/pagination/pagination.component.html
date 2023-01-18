@@ -1,0 +1,19 @@
+<div *ngIf="pages.length">
+  <ion-button [disabled]="!selectedPage ? true : false" (click)="goPage('first')" color="medium" fill="clear" size="small"><ion-icon name="play-skip-back-sharp"></ion-icon></ion-button>
+  <ion-button [disabled]="!selectedPage ? true : false" (click)="goPage('before')" color="medium" fill="clear" size="small"><ion-icon name="caret-back-outline"></ion-icon></ion-button>
+  <ion-button [fill]="page === selectedPage ? 'solid' : 'clear'" [color]="page === selectedPage ? 'primary' : 'medium'" size="small" (click)="goPage(page)" *ngFor="let page of pages">{{page + 1}}</ion-button>
+  <ion-button [disabled]="(selectedPage + 1) >= pagination?.totalPages ? true : false" (click)="goPage('after')" color="medium" fill="clear" size="small"><ion-icon name="caret-forward-outline"></ion-icon></ion-button>
+  <ion-button [disabled]="(selectedPage + 1) >= pagination?.totalPages ? true : false" (click)="goPage('last')" color="medium" fill="clear" size="small"><ion-icon name="play-skip-forward-sharp"></ion-icon></ion-button>
+</div>
+
+<div *ngIf="!pages.length">
+  <ion-button color="medium" fill="clear" disabled size="small"><ion-icon name="caret-back-outline"></ion-icon></ion-button>
+  <ion-button color="medium" fill="clear" disabled size="small"><ion-icon name="play-skip-back-sharp"></ion-icon></ion-button>
+  <ion-button [fill]="page === selectedPage ? 'solid' : 'clear'" [color]="page === selectedPage ? 'primary' : 'medium'" disabled size="small" *ngFor="let page of [1, 2, 3, 4, 5, 6, 7, 8]">
+    <skeleton></skeleton>
+    <skeleton></skeleton>
+    <skeleton></skeleton>
+  </ion-button>
+  <ion-button color="medium" fill="clear" disabled size="small"><ion-icon name="caret-forward-outline"></ion-icon></ion-button>
+  <ion-button color="medium" fill="clear" disabled size="small"><ion-icon name="play-skip-forward-sharp"></ion-icon></ion-button>
+</div>

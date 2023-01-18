@@ -1,0 +1,77 @@
+<ion-row>
+  <ion-col size="12">
+    <ion-card class="ion-padding">
+      <ion-title class="ion-no-padding" color="dark">
+        List movies
+      </ion-title>
+      <ion-grid class="ion-no-padding">
+        <ion-row class="gray-color ion-text-center ion-align-items-center">
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              ID
+            </ion-card-subtitle>
+          </ion-col>
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              Year
+            </ion-card-subtitle>
+            <ion-searchbar (ionChange)="filter($event, 0)" mode="ios" search-icon="null" placeholder="Filter by year"></ion-searchbar>
+          </ion-col>
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              Title
+            </ion-card-subtitle>
+          </ion-col>
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              Winner?
+            </ion-card-subtitle>
+              <ion-select placeholder="Yes/No" (ionChange)="filter($event, 1)" mode="ios">
+                <ion-select-option [value]="true">Yes</ion-select-option>
+                <ion-select-option [value]="false">No</ion-select-option>
+              </ion-select>
+          </ion-col>
+        </ion-row>
+        <div *ngIf="pageData?.content?.length">
+          <ion-row class="value_lines" *ngFor="let item of pageData?.content">
+            <ion-col class="custom-padding col-results">
+              {{item.id}}
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              {{item.year}}
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              {{item.title}}
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              {{item.winner ? 'Yes' : 'No'}}
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div *ngIf="!pageData?.content?.length"> 
+          <ion-row class="value_lines" *ngFor="let item of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]">
+            <ion-col class="custom-padding col-results">
+              <skeleton></skeleton>
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              <skeleton></skeleton>
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              <skeleton></skeleton>
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              <skeleton></skeleton>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <ion-row class="footer gray-color ion-padding ion-text-center">
+          <ion-col>
+            <pagination (selectedPageOutput)="selectPage($event)" [pagination]="pageData"></pagination>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-col>
+</ion-row>
