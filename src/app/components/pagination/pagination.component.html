@@ -1,9 +1,9 @@
 <div *ngIf="pages.length">
-  <ion-button [disabled]="!selectedPage ? true : false" (click)="goPage('first')" color="medium" fill="clear" size="small"><ion-icon name="play-skip-back-sharp"></ion-icon></ion-button>
-  <ion-button [disabled]="!selectedPage ? true : false" (click)="goPage('before')" color="medium" fill="clear" size="small"><ion-icon name="caret-back-outline"></ion-icon></ion-button>
-  <ion-button [fill]="page === selectedPage ? 'solid' : 'clear'" [color]="page === selectedPage ? 'primary' : 'medium'" size="small" (click)="goPage(page)" *ngFor="let page of pages">{{page + 1}}</ion-button>
-  <ion-button [disabled]="(selectedPage + 1) >= pagination?.totalPages ? true : false" (click)="goPage('after')" color="medium" fill="clear" size="small"><ion-icon name="caret-forward-outline"></ion-icon></ion-button>
-  <ion-button [disabled]="(selectedPage + 1) >= pagination?.totalPages ? true : false" (click)="goPage('last')" color="medium" fill="clear" size="small"><ion-icon name="play-skip-forward-sharp"></ion-icon></ion-button>
+  <ion-button id="first" [disabled]="pagination?.first" (click)="goPage('first')" color="medium" fill="clear" size="small"><ion-icon name="play-skip-back-sharp"></ion-icon></ion-button>
+  <ion-button id="before" [disabled]="pagination?.pageable.pageNumber === 0 ? true : false" (click)="goPage('before')" color="medium" fill="clear" size="small"><ion-icon name="caret-back-outline"></ion-icon></ion-button>
+  <ion-button [disabled]="pagination?.totalPages <= 1 ? true : false" [fill]="page === selectedPage ? 'solid' : 'clear'" [color]="page === selectedPage ? 'primary' : 'medium'" size="small" (click)="goPage(page)" *ngFor="let page of pages">{{page + 1}}</ion-button>
+  <ion-button id="after" [disabled]="pagination?.totalPages === (pagination?.pageable.pageNumber + 1) ? true : false" (click)="goPage('after')" color="medium" fill="clear" size="small"><ion-icon name="caret-forward-outline"></ion-icon></ion-button>
+  <ion-button id="last" [disabled]="pagination?.last" (click)="goPage('last')" color="medium" fill="clear" size="small"><ion-icon name="play-skip-forward-sharp"></ion-icon></ion-button>
 </div>
 
 <div *ngIf="!pages.length">

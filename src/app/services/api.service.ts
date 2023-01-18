@@ -12,7 +12,6 @@ export class ApiService {
     private http: HttpClient,
   ) { }
 
-  // get method
   get(params?: any) {
     return this.http.get(environment.MAIN_URL + `${params}`).pipe(map((res: any) => res));
   }

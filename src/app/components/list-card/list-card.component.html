@@ -26,9 +26,9 @@
             <ion-card-subtitle class="custom-padding" color="dark">
               Winner?
             </ion-card-subtitle>
-              <ion-select placeholder="Yes/No" (ionChange)="filter($event, 1)" mode="ios">
-                <ion-select-option [value]="true">Yes</ion-select-option>
-                <ion-select-option [value]="false">No</ion-select-option>
+              <ion-select id="filter-winner" placeholder="Yes/No" (ionChange)="filter($event, 1)" mode="ios">
+                <ion-select-option id="winner-yes" [value]="true">Yes</ion-select-option>
+                <ion-select-option id="winner-no" [value]="false">No</ion-select-option>
               </ion-select>
           </ion-col>
         </ion-row>

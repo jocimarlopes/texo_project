@@ -25,7 +25,11 @@ export class ListCardComponent implements OnInit {
   }
 
   public filter(ev: any, filterByWinner: number) {
-    if(!ev.detail.value.length) return this.getMovies()
+    console.log(ev, 'ev');
+    console.log(this.selectedYear, 'selectedYear');
+    
+    
+    if(!ev.detail.value && !this.selectedYear) return this.getMovies()
     if(ev.detail.value.length !== 4 && typeof(ev.detail.value) === 'string') return
     this.doRequestToApi(filterByWinner, ev)
   }

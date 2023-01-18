@@ -21,8 +21,9 @@ export class PaginationComponent implements OnChanges {
   }
 
   private refreshPageParams() {
-    if (this.pagination?.content)
+    if (this.pagination?.content) {
       this.pages = Array.from(Array(this.pagination?.totalPages ? this.pagination.totalPages : 5).keys())
+    }
   }
 
   public goPage(page: any) {

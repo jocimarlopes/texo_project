@@ -1,0 +1,15 @@
+describe('Frontend Angular Test', () => {
+  it('Indo para a página Dashboard', () => {
+    cy.visit('http://localhost:4200/')
+    cy.get(':nth-child(1) > .item').click()
+    cy.log('Procurando por ganhadores do "Ano 2000"... Aguarde')
+    cy.get('.searchbar-input').type('2000')
+    cy.get('.button-search').click()
+    cy.log('Observe a resposta do servidor na lista...')
+    cy.wait(2000)
+    cy.get('.searchbar-clear-button').click()
+    cy.get('.searchbar-input').type('2005')
+    cy.get('.button-search').click()
+    cy.log('Observe a resposta do servidor na lista, again...')
+  })
+})
