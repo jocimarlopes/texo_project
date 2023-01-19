@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'list-card',
@@ -13,7 +14,8 @@ export class ListCardComponent implements OnInit {
   selectedYear: number = 1980
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private helper: HelperService
   ) { }
 
   ngOnInit() {
@@ -25,10 +27,6 @@ export class ListCardComponent implements OnInit {
   }
 
   public filter(ev: any, filterByWinner: number) {
-    console.log(ev, 'ev');
-    console.log(this.selectedYear, 'selectedYear');
-    
-    
     if(!ev.detail.value && !this.selectedYear) return this.getMovies()
     if(ev.detail.value.length !== 4 && typeof(ev.detail.value) === 'string') return
     this.doRequestToApi(filterByWinner, ev)
@@ -40,7 +38,10 @@ export class ListCardComponent implements OnInit {
       1: `?page=0&size=15&winner=${ev.detail.value}&year=${this.selectedYear}`
     }
     !param ? this.selectedYear = ev.detail.value : this.filterWinner = ev.detail.value
-    this.api.get(params[param]).subscribe(data => this.pageData = data)
+    this.api.get(params[param]).subscribe(data => {
+      if(data?.content.length) return this.pageData = data
+      this.helper.message("Sorry, this year don't have movie", 3000, 'warning')
+    })
 
   }
 

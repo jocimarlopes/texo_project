@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { HelperService } from 'src/app/services/helper.service';
 @Component({
   selector: 'dashboard-cards',
   templateUrl: './dashboard-cards.component.html',
@@ -16,7 +17,8 @@ export class DashboardCardsComponent implements OnInit {
   searchClicked: boolean = false
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private helper: HelperService
   ) { }
 
   ngOnInit() {
@@ -39,11 +41,17 @@ export class DashboardCardsComponent implements OnInit {
 
   public searchByYear() {
     this.searchClicked = true
-    this.api.get(`?winner=true&year=${this.selectedYear}`).subscribe(data => this.winnersByYear = data)
+    this.api.get(`?winner=true&year=${this.selectedYear}`).subscribe(data => {
+      if(data.length) return this.winnersByYear = data
+      this.helper.message("Sorry, this year don't have movie", 3000, 'warning')
+      this.searchClicked = false
+    })
   }
 
   public selectYearChanging(ev: any) {
     this.selectedYear = ev.detail.value
+    console.log(this.selectedYear);
+    
   }
 
 }
