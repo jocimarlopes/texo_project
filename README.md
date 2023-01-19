@@ -53,22 +53,6 @@ Caso queira instalar os módulos (**node_modules**) e abrir o projeto após a in
 # Testes Unitários E2E
 Para realizar os testes unitários você precisa já ter o **ambiente instalado e configurado**, após isso você irá rodar o projeto em um **Terminal Linux** ou **Prompt de Comando** com o comando `npm start`
 Feito isso você irá abrir outro  **Terminal Linux** ou **Prompt de Comando** e acessar a pasta do projeto, agora dentro da pasta do projeto você irá digitar o comando `npm run cypress` o Teste Unitário irá rodar automaticamente.
-Obs.: Testes Unitários não são meu ponto forte, mas estou sempre disposto a aprender.
-  
-  
-
-## Observações
-
-Este é um Produto Mínimo Viável,
-
-para um desenvolvimento mais robusto e performático
-
-leva mais tempo, eu gostaria de implementar NGRX, Reactive Forms, etc..
-
-Mas acabei solicitando um prazo menor do que o esperado.
-
-- Jocimar Lopes
-
   
   
 
